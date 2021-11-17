@@ -1,5 +1,9 @@
 # README
 
+General introduction
+
+[Link to the domain modeling documentation](asdasd)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
