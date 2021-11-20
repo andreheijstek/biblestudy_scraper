@@ -1,0 +1,13 @@
+{
+  "pid": 53510,
+  "actual_count": 1,
+  "example_count": 1,
+  "duplicate_examples": 0,
+  "interrupted_examples": 0,
+  "failed_examples": 1,
+  "skipped_examples": 0,
+  "pending_examples": 0,
+  "flaky_examples": 0,
+  "run_id": "5933d3da53795bd8fda9ee594263744e",
+  "timestamp": "2021-11-20 19:54:20 UTC"
+}

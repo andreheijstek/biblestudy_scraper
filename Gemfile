@@ -41,6 +41,8 @@ group :development, :test do
   gem "contracts"
   # meta_request enables the Rails Panel in the Chrome browser - very helpful to debug
   gem "meta_request"
+  # Debugger
+  gem "pry"
   # Code coverage for Ruby
   gem "simplecov"
   gem "simplecov-lcov"
@@ -112,10 +114,6 @@ group :test do
   gem "capybara", ">= 3.26"
   # Dead-simple way to make Capybara and Selenium play together
   gem "capybara-selenium"
-  # BDD
-  gem "cucumber"
-  # Cucumber for rails
-  gem "cucumber-rails", require: false
   # Used to clean the database between tests
   gem "database_cleaner"
   # Factories in testing

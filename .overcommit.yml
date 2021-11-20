@@ -16,61 +16,20 @@
 # Uncomment the following lines to make the configuration take effect.
 
 PreCommit:
-  ALL:
-    enabled: true
-  Foodcritic:
-    enabled: false
-  LicenseHeader:
-    enabled: false
-  LicenseFinder:
-    enabled: false
-  RakeTarget:
-    enabled: false
   CustomScript:
     enabled: true
     command: ["i18n-tasks", "missing"]
-PostCheckout:
-  ALL:
-    enabled: true
-PostCommit:
-  ALL:
-    enabled: true
-  Commitplease:
-    enabled: false
+
 PrePush:
-  ALL:
-    enabled: true
-  RakeTarget:
-    enabled: false
-  Pytest:
-    enabled: false
-  PythonNose:
-    enabled: false
-  PubTest:
-    enabled: false
-  PhpUnit:
-    enabled: false
-  GoTest:
-    enabled: false
-  GolangciLint:
-    enabled: false
-  FlutterTest:
-    enabled: false
-  CargoTest:
-    enabled: false
-  GitLfs:
-    enabled: false
-  TestUnit:
-    enabled: false
   Undercover:
     enabled: true
     required: true
     command: [ 'undercover', '--compare', 'origin/main' ]
 
-#Po:stCheckout:
+#PostCheckout:
 #  ALL: # Special hook name that customizes all hooks of this type
 #   : quiet: true # Change all post-checkout hooks to only display output on failure
 #
-#  In:dexTags:
+#  IndexTags:
 #    enabled: true # Generate a tags file with `ctags` each time HEAD changes
 :::::

@@ -1,0 +1,22 @@
+{
+  "63dd675434e48d05285970ac0793afa5": {
+    "example_group": "RSpec::ExampleGroups::Init",
+    "description": "should fail",
+    "full_description": "init should fail",
+    "shared_group": [
+
+    ],
+    "file_name": "/spec/init/init.rb",
+    "line_number": 5,
+    "rerun_file_name": "/spec/init/init.rb",
+    "rerun_line_number": 5,
+    "example_id": "63dd675434e48d05285970ac0793afa5",
+    "run_reason": "No cache",
+    "execution_result": {
+      "started_at": "2021-11-20 19:54:20 UTC",
+      "finished_at": "2021-11-20 19:54:20 UTC",
+      "run_time": 0.023687,
+      "status": "failed"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "/spec/init/init.rb": {
+    "example_count": 1,
+    "examples": {
+      "/spec/init/init.rb": 1
+    }
+  },
+  "/spec/spec_helper.rb": {
+    "example_count": 1,
+    "examples": {
+      "/spec/init/init.rb": 1
+    }
+  }
+}
