@@ -32,6 +32,8 @@ PostCheckout:
 PostCommit:
   ALL:
     enabled: true
+  Commitplease:
+    enabled: false
 PrePush:
   ALL:
     enabled: true
