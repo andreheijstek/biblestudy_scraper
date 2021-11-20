@@ -35,10 +35,33 @@ PostCommit:
 PrePush:
   ALL:
     enabled: true
+  RakeTarget:
+    enabled: false
+  Pytest:
+    enabled: false
+  PythonNose:
+    enabled: false
+  PubTest:
+    enabled: false
+  PhpUnit:
+    enabled: false
+  GoTest:
+    enabled: false
+  GolangciLint:
+    enabled: false
+  FlutterTest:
+    enabled: false
+  CargoTest:
+    enabled: false
+  GitLfs:
+    enabled: false
+  TestUnit:
+    enabled: false
 
-#PostCheckout:
+#Po:stCheckout:
 #  ALL: # Special hook name that customizes all hooks of this type
-#    quiet: true # Change all post-checkout hooks to only display output on failure
+#   : quiet: true # Change all post-checkout hooks to only display output on failure
 #
-#  IndexTags:
+#  In:dexTags:
 #    enabled: true # Generate a tags file with `ctags` each time HEAD changes
+:::::
