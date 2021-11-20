@@ -4,3 +4,6 @@
 require_relative "config/application"
 
 Rails.application.load_tasks
+
+require "yard-junk/rake"
+YardJunk::Rake.define_task
