@@ -43,6 +43,7 @@ group :development, :test do
   gem "meta_request"
   # Code coverage for Ruby
   gem "simplecov"
+  gem "simplecov-lcov"
   # Standard - Ruby style guide, linter, and formatter
   gem "standard"
   # Like RuboCop but for code coverage. Inspects files in a git diff and warns on changed methods,
