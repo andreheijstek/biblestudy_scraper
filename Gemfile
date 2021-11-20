@@ -70,6 +70,10 @@ group :development do
   gem "listen", "~> 3.3"
   # overcommit is a tool to manage and configure Git hooks.
   gem "overcommit"
+  # Pronto - another code quality checker
+  gem "pronto"
+  gem "pronto-rubocop", require: false
+  gem "pronto-flay", require: false
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem "rack-mini-profiler", "~> 2.0"
@@ -84,6 +88,8 @@ group :development do
   # Web Console is a debugging tool for your Ruby on Rails applications.
   # Call console in your controllers or views gives you an interactive console in that context
   gem "web-console", ">= 4.1.0"
+  # Check formatting and quality of yaml files
+  gem "yamllint"
   # YARD is a documentation generation tool for the Ruby programming language.
   # It enables the user to generate consistent, usable documentation that can be exported to a
   # number of formats very easily, and also supports extending for custom Ruby constructs

@@ -16,17 +16,24 @@
 # Uncomment the following lines to make the configuration take effect.
 
 PreCommit:
-  RuboCop:
+  ALL:
     enabled: true
-    on_warn: fail # Treat all warnings as failures
-
-  TrailingWhitespace:
+  Foodcritic:
+    enabled: false
+  LicenseHeader:
+    enabled: false
+  LicenseFinder:
+    enabled: false
+  RakeTarget:
+    enabled: false
+PostCheckout:
+  ALL:
     enabled: true
-    exclude:
-      - "**/db/structure.sql" # Ignore trailing whitespace in generated files
-      - "**/bin/**/*"
-
-  RailsBestPractices:
+PostCommit:
+  ALL:
+    enabled: true
+PrePush:
+  ALL:
     enabled: true
 
 #PostCheckout:
