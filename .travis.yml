@@ -1,0 +1,31 @@
+language: ruby
+cache: bundler
+sudo: false
+addons:
+  chrome: stable
+before_script:
+  - psql -c 'create database biblestudy_scraper_test;' -U postgres
+script:
+  - bundle exec rspec
+  - undercover --compare main
+before_install:
+  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu
+  --remote-debugging-port=9222 http://localhost &"
+  - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
+  - gem install bundler undercover
+  - gem update bundler
+  - bundle update
+services:
+  - postgresql
+deploy:
+  provider: heroku
+  api_key:
+    secure: ifapgAUR32VBu0ELACzQ/21rUTiU/ix3RVSO09KVOgojHSBzvxKufNUKLVATuRPnwhh6L/n3OewIMk2zQ7+i/z6VPl2J95GeZLn+rkIPBSgN+oIY9PlyRikvjDd1O1K41RbwRyRsdT+lY8mLjyClPqRJw3RaUpZ9YXo5Ngc7HbM5TgTHiPFJbQ91TaOyyZjinD5J/ePBkYFB68TQsKiD8y5OwL4csPqxXwToqD6alVl+3RVMmmJVcunmwuAl6yZXaC/MgGqphbuLEYDjE0KULQkg+8DVG5MWt7y8+bKoEyFuzAoQOxy1g9SQKcH/zUUfhe0NInC/IDa24KBDPvonKI9yzA8XsZdD7ilLOrxAzIYi8WmJ8E5ndS1JIyuGz87Xhu2FbDmGFQ00Qiq+Y04w7xCyd5CdqwdHHNqlPwNWm/WVR3/OQEALUYuAzxoCexANqdcR4U5ut5kMIWLJxAYzkrzyRYXEx5VZFs23NLtUKYtPLxX0QYzbtgk/WV9mQwKKGPpoc6kWPHPWeswGp48m1oU9RN7EZnnx4Iq4PAhbnX0n/q8WUTKHzls9FIyQV44X3jZiIpbSfM0quhumfyPEw6YKyLZH2V2XhPBN24eP/35S2DlyyA7wgJ0kRAHMhbkXr7Yf/mtuWsy4hHbsOJgi6sKabfk/dxHUhBIa6uPBW7g=
+  app: biblestudy-scraper
+  on:
+    repo: andreheijstek/biblestudy_scraper
+    branch: main
+  skip_cleanup: true
+notifications:
+  email:
+    - andre.heijstek@hey.com

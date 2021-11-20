@@ -45,6 +45,9 @@ group :development, :test do
   gem "simplecov"
   # Standard - Ruby style guide, linter, and formatter
   gem "standard"
+  # Like RuboCop but for code coverage. Inspects files in a git diff and warns on changed methods,
+  # classes and blocks which need to be tested.
+  gem "undercover"
   # Provides a dev bar and an overlay in-browser to visualize your UI's rendered partials
   gem "xray-rails"
 end

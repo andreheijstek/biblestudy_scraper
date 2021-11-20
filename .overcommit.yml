@@ -26,6 +26,9 @@ PreCommit:
     enabled: false
   RakeTarget:
     enabled: false
+  CustomScript:
+    enabled: true
+    command: ["i18n-tasks", "missing"]
 PostCheckout:
   ALL:
     enabled: true
@@ -59,6 +62,10 @@ PrePush:
     enabled: false
   TestUnit:
     enabled: false
+  Undercover:
+    enabled: true
+    required: true
+    command: [ 'undercover', '--compare', 'origin/main' ]
 
 #Po:stCheckout:
 #  ALL: # Special hook name that customizes all hooks of this type
