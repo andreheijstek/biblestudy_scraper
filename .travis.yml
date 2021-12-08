@@ -4,28 +4,31 @@ sudo: false
 addons:
   chrome: stable
 before_script:
-  - psql -c 'create database biblestudy_scraper_test;' -U postgres
+- psql -c 'create database biblestudy_scraper_test;' -U postgres
 script:
-  - bundle exec rspec
-  - undercover --compare main
+- bundle exec rspec
+- undercover --compare main
 before_install:
-  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu
+- "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu
   --remote-debugging-port=9222 http://localhost &"
-  - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
-  - gem install bundler undercover
-  - gem update bundler
-  - bundle update
+- ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
+- gem install bundler undercover
+- gem update bundler
+- bundle update
 services:
-  - postgresql
+- postgresql
 deploy:
   provider: heroku
   api_key:
-    secure: ifapgAUR32VBu0ELACzQ/21rUTiU/ix3RVSO09KVOgojHSBzvxKufNUKLVATuRPnwhh6L/n3OewIMk2zQ7+i/z6VPl2J95GeZLn+rkIPBSgN+oIY9PlyRikvjDd1O1K41RbwRyRsdT+lY8mLjyClPqRJw3RaUpZ9YXo5Ngc7HbM5TgTHiPFJbQ91TaOyyZjinD5J/ePBkYFB68TQsKiD8y5OwL4csPqxXwToqD6alVl+3RVMmmJVcunmwuAl6yZXaC/MgGqphbuLEYDjE0KULQkg+8DVG5MWt7y8+bKoEyFuzAoQOxy1g9SQKcH/zUUfhe0NInC/IDa24KBDPvonKI9yzA8XsZdD7ilLOrxAzIYi8WmJ8E5ndS1JIyuGz87Xhu2FbDmGFQ00Qiq+Y04w7xCyd5CdqwdHHNqlPwNWm/WVR3/OQEALUYuAzxoCexANqdcR4U5ut5kMIWLJxAYzkrzyRYXEx5VZFs23NLtUKYtPLxX0QYzbtgk/WV9mQwKKGPpoc6kWPHPWeswGp48m1oU9RN7EZnnx4Iq4PAhbnX0n/q8WUTKHzls9FIyQV44X3jZiIpbSfM0quhumfyPEw6YKyLZH2V2XhPBN24eP/35S2DlyyA7wgJ0kRAHMhbkXr7Yf/mtuWsy4hHbsOJgi6sKabfk/dxHUhBIa6uPBW7g=
-  app: biblestudy-scraper
+    secure: btupIbiUeJasl8bUmskqCyM98zUoR6CVKuw2Dr41N/im7Lvg8aYbAK2R9R4Ygy+l2/ApYwL8cbUB081iOJvf/ZJwIOYRNPW/jqA18qjmwcqUy1pbPsVJ5j1yZoMG8roQ9Cu/5yCTwQ8uaVhzFBvOQm1WBZfx3I6dwtvuM4Qd41uaXpFj9vM7LPFx0YCXDI+MXPlNz2rmv90yYaKhO7m85zvZuYm5bCDYiAtR4aay9OtlFGVx7dR65UPhieYgrm3+mdau746bm5Cu1rcSmWt4X/ls+mkWRavyJd+/+TcKzNDiUm16AxiuvsOofqltvksbQOLF49sU11KEy7ekk6G/hZLUeQ50bGWRnowaPsUHdWrNqnW0I0ZODhXvzfwU5B1OdCZrlGIj0z+uRzQhfMS0jN5R9kFBtnwlU1ODMY3KvdPdVCD8jpZ1ns4DWmNq2DrdtIkfqO1mWCwe92dARH6+GAQLC+0YqZ9u6VXOd5o7xHK/U6pYL3EO6B9R8yc2y0golkvwl8AL0TJUrjJxkmdL6Wv2qinR8L6AlbbwxYJ6MeegwfOF8rhvjTiBaBZ5KcjWGWgxk95DxMcYy9OzjIKKYm7vloBcdQv6DTnyXBO7ZWoHNuBztR5ZQrW+wnvqfvX8rp5NZHqb+7lwaqCTowwJ9L9MZjycORgBoi9LrHxQA/s=
+  app: biblestudy_scraper
   on:
     repo: andreheijstek/biblestudy_scraper
     branch: main
-  skip_cleanup: true
+  skip_cleanup: 'true'
 notifications:
   email:
-    - andre.heijstek@hey.com
+  - andre.heijstek@hey.com
+env:
+  global:
+    secure: B/YvhGRPf0iUe3o8NWvzC+krr1Y46in3n+16y3Cu52id9SaYBEZFvgT1P4kek3KzkcRZesM5FwreIh3LpH8/WLWjZqGAGd5JOnoVpfLDySduRwYQk5UMrxdrIaz2de6clOmYYF5AKZ05A7YhKcQ4X1vwUuowd0Yhjs+aNhwRFRtu+y6MBkSTvztnF2MuLwrATXn3II94yViDzfm4cNDh4ul9DWm1lZIE9MwkicZ6S0hNJNiwKY+1tvjURy/ZG2RLhbTsDIY8s7uEuYKjZgRErXwNMDj65DFdQWdo7tFuINzS7mmRdosazZH+kMNQMDntEGVspi/+f4PGqWrQ1/T0+J5K9AS4rIBNzVmIBu4RotBDkPlTdGSjV//qSyKtuZ+uBpn47ZLkqjk3tWdsdDMhBNwi1+x6sG+1DY3r32wAsOs38zEQ6xZaIO4WJZ8qPQVo2D7VwTv59gfFuHMZK1fC+Fb3SFpXWGmIB/dLEz48lrVdANR5qmXZiiOZ+fUgY9bCmPra6gNM5sod7Vfh9XIvrbiLweO+nIY3bXGNbI22oa62U4LIVdutSlu2oJlkGFTs7NPJ9NTla41USgfNJkmpBRA8eweQK1jH34cSgVijCwQCE31YnBey0sWVQIkVQD7GiToO0Dol7wsfrZhOwjSQ1ljqFSX0le5Jd+bwY/Oa4SU=
